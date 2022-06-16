@@ -101,17 +101,13 @@ function contains(selector, text) {
 function set() {
     if (this.innerHTML !== EMPTY) return;
 
-    // Audio files
-    let onClickAudio = new Audio('assets/click.mp3');
-    let onWinAudio = new Audio('assets/win.mp3');
-
     this.innerHTML = turn;
     moves += 1;
     score[turn] += this.identifier;
 
     // If either of the players win
     if (win(this)) {
-        onWinAudio.play();
+        new Audio('assets/win.mp3').play();
         document.getElementById('turn').textContent = 'Player ' + turn + ' wins!';
 
         boxes.forEach(function (square) {
@@ -122,12 +118,14 @@ function set() {
 
     // If the game draws
     else if (moves === N_SIZE * N_SIZE) {
+        new Audio('assets/draw.mp3').play();
+        onClickAudio.play();
         document.getElementById('turn').textContent = 'The game was a draw.';
     }
 
     // If we're still playing
     else {
-        onClickAudio.play();
+        new Audio('assets/click.mp3').play();
         turn = turn === 'X' ? 'O' : 'X';
         document.getElementById('turn').textContent = 'Player ' + turn;
     }
