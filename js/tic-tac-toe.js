@@ -119,7 +119,6 @@ function set() {
     // If the game draws
     else if (moves === N_SIZE * N_SIZE) {
         new Audio('assets/draw.mp3').play();
-        onClickAudio.play();
         document.getElementById('turn').textContent = 'The game was a draw.';
     }
 
