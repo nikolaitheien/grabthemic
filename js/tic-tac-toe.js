@@ -56,11 +56,11 @@ function init() {
  */
 function startNewGame() {
     score = {
-        0x1F600: 0,
-        0x1F604: 0
+        'X': 0,
+        'O': 0
     };
     moves = 0;
-    turn = String.fromCodePoint(0x1F600);
+    turn = 'X';
     boxes.forEach(function (square) {
         square.innerHTML = EMPTY;
     });
@@ -112,7 +112,7 @@ function set() {
     // If either of the players win
     if (win(this)) {
         onWinAudio.play();
-        document.getElementById('turn').textContent = 'Player ' + String.fromCodePoint(turn) + ' wins!';
+        document.getElementById('turn').textContent = 'Player ' + turn + ' wins!';
 
         boxes.forEach(function (square) {
             if (square.innerHTML === EMPTY)
@@ -128,8 +128,8 @@ function set() {
     // If we're still playing
     else {
         onClickAudio.play();
-        turn = turn === String.fromCodePoint(0x1F600) ? String.fromCodePoint(0x1F604) : String.fromCodePoint(0x1F600);
-        document.getElementById('turn').textContent = 'Player ' + String.fromCodePoint(turn);
+        turn = turn === 'X' ? 'O' : 'X';
+        document.getElementById('turn').textContent = 'Player ' + turn;
     }
 }
 
