@@ -11,9 +11,10 @@
   src: url('../fonts/CiscoSansThin.otf');
   font-weight: normal;
   font-style: normal;
-} 
+}
 
 .container {
+  color: white;
   display: flex;
   align-content: center;
   justify-content: center;
