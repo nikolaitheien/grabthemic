@@ -56,11 +56,11 @@ function init() {
  */
 function startNewGame() {
     score = {
-        'X': 0,
-        'O': 0
+        '🍦': 0,
+        '🌉': 0
     };
     moves = 0;
-    turn = 'X';
+    turn = '🍦';
     boxes.forEach(function (square) {
         square.innerHTML = EMPTY;
     });
@@ -125,7 +125,7 @@ function set() {
     // If we're still playing
     else {
         new Audio('assets/click.mp3').play();
-        turn = turn === 'X' ? 'O' : 'X';
+        turn = turn === '🍦' ? '🌉' : '🍦';
         document.getElementById('turn').textContent = 'Player ' + turn;
     }
 }
