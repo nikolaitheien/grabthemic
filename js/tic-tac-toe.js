@@ -55,6 +55,7 @@ function init() {
  * New game
  */
 function startNewGame() {
+    new Audio('assets/click.mp3').play();
     score = {
         '🍦': 0,
         '🌉': 0
@@ -124,8 +125,16 @@ function set() {
 
     // If we're still playing
     else {
-        new Audio('assets/click.mp3').play();
-        turn = turn === '🍦' ? '🌉' : '🍦';
+        if (turn === '🍦') {
+            new Audio('assets/lick.mp3').play();
+            turn = '🌉';
+        } 
+
+        else {
+            new Audio('assets/honk.mp3').play();
+            turn = '🍦';
+        }
+
         document.getElementById('turn').textContent = 'Player ' + turn;
     }
 }
